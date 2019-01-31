@@ -1,10 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>DELI-VERY</title>
-    </head>
-    <body>
-        <h1>Hello World!!!</h1>
-        <a href="/map" target="_blank">Open map in new window</a>.
-    </body>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>BUERGERS!!</title>
+    <meta charset="utf-8"/>
+  </head>
+  
+  <body>
+    <main>
+      <section class="header">
+	<h1>Welcome to BurgerOnline</h1>
+	<img src="https://cdnb.artstation.com/p/assets/images/images/006/006/249/large/kieran-mayer-insideside.jpg?1495373943">
+      </section>
+
+      <section class="menu">
+	<h2>Select burger</h2>
+	<p>This is where you execute burger selection</p>
+
+	<div class="grid">
+	  
+	  <div class="title a">Americana</div>
+	  <div class="pic a">
+	    <img id="americana" src="https://foremangrillrecipes.com/wp-content/uploads/2013/05/american-hamburger-foreman-grill.jpg" alt="American hamburger" title="Americana" width="203">
+	  </div>
+	  <div class="desc a">
+	    <ul>
+	      <li>Good old-fashioned american burger</li>
+	      <li>Contains <span class="allergen">lactose</span> and
+		<span class="allergen">gluten</span></li>
+	      <li>Comes with an american flag</li>
+	    </ul>
+	  </div>
+	  
+	  <div class="title t">Tall Order</div>
+	  <div class="pic t">
+	    <img src="https://www.tasteofhome.com/wp-content/uploads/2017/10/exps28800_UG143377D12_18_1b_RMS-696x696.jpg" alt="Tall hambuger" title="Tall order" width="150">
+	  </div>
+	  <div class="desc t">
+	    <ul>
+	      <li>Extra everything</li>
+	      <li>Contains <span class="allergen">lactose, gluten, egg</span></li>
+	      <li>WILL fall apart when eaten</li>
+	    </ul>
+	  </div>
+	  
+	  <div class="title h">A Hamburger</div>
+	  <div class="pic h">
+	    <img id="hans" src="https://images.halloweencostumes.com/products/6180/1-1/traditional-german-costume.jpg" alt="German man" title="Hans" width="150">
+	  </div>
+	  <div class="desc h">
+	    <ul>
+	      <li>In west Hamburg, born and raised</li>
+	      <li>Not actually for sale</li>
+	      <li>Claims to be gluten "sensitive" but drinks beer</li>
+	    </ul>
+	  </div>
+	</div>
+	
+      </section>
+      
+      <section class="order">
+	<h2>Customer information</h2>
+	<p>This is where you provide necessary information</p>
+	<h3>Delivery information:</h3>
+
+	<form>
+	  <p>
+	    <label for="name">Full name</label><br>
+	    <input type="text" id="name" name="fn" required="required" placeholder="First and last name">
+	  </p>
+	  <p>
+	    <label for="email">E-mail</label><br>
+	    <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+	  </p>
+	  <p>
+	    <label for="street">Street</label><br>
+	    <input type="text" id="street" name="s" required="required" placeholder="Street name">
+	  </p>
+	  <p>
+	    <label for="house">House</label><br>
+	    <input type="number" min="0" id="house" name="h" required="required" placeholder="House number">
+	  </p>
+	  <p>
+	    <label for="paymeny">Payment options</label><br>
+	    <select id="payment" name="p">
+	      <option selected>Credit card</option>
+	      <option>Cash</option>
+	      <option>Coupons</option>
+	      <option>Haggling</option>
+	    </select>
+	  <p>
+	    <label for="gender">Gender</label><br>
+	    <input type="radio" id="gender" name="g" value="male">Male<br>
+	    <input type="radio" id="gender" name="g" value="female">Female<br>
+	    <input type="radio" id="gender" name="g" value="undisclosed" checked="checked">Undisclosed<br>
+	    <input type="radio" id="gender" name="g" value="confused">Confused as to why we want to know<br>
+	  </p>
+	</form>
+      </section>
+      
+      <button type="submit"><img src="https://images.vexels.com/media/users/3/144007/isolated/preview/6150d0cfaabb9b2fc29008ee0f8cf099-burger-fast-food-stroke-icon-by-vexels.png" width="20">Place order</button>
+    </main>
+    
+    <hr>
+    <footer>&copy Silly Burgers Inc.</footer>
+  </body>
 </html>

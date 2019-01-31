@@ -1,0 +1,99 @@
+body {
+    font-family: times, serif;
+    font-size: 1.2em;
+}
+
+.header {  
+    height: 7.5em;
+    overflow: hidden;
+}
+
+.header > img {
+    opacity: 0.65;
+    width: 90em;
+    height: auto;
+    margin-top: -29em;
+}
+
+.header > h1 {
+    position: absolute;
+    font-size: 2.5em;
+    margin-left: 1em;
+}
+
+.menu {
+    background-color: black;
+    color: white;
+    border: 2px dashed white;
+    padding-left: 1.5em;
+}
+
+.order {
+    border: 2px dashed black;
+    padding-left: 1.5em;
+}
+
+.allergen {
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+input[type="radio"], select {
+    cursor: pointer;
+}
+
+section {
+    margin: 0.8em;
+}
+
+button {
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 1.3em;
+    justify-items: center;
+    align-items: start;
+    grid-template-columns: 10em 10em 10em;
+}
+
+.title {
+    grid-row: 1;
+    font-weight: bold;
+}
+
+.pic {
+    grid-row: 2;
+    overflow: hidden;
+}
+
+#americana {
+    margin-left: -11%;
+}
+
+#hans {
+    margin-bottom: -46.4%;
+}
+
+.desc {
+    grid-row: 3;
+    margin-top: -1em;
+}
+
+.a {
+    grid-column: 1;
+}
+
+.t {
+    grid-column: 2;
+}
+
+.h {
+    grid-column: 3;
+}
