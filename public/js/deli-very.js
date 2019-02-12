@@ -22,26 +22,20 @@ function readData() {
 }
 
 function readBurgers() {
-    var string = '';
-    if (document.getElementById('Americana').checked) {
-	string = string + 'Americana';
+    var index = 0;
+    var list = [];
+    for (var burger in menuItems)
+    {
+	if(document.getElementById(menuItems[burger].name).checked) {
+	    list[index] = menuItems[burger].name;
+	    index = index + 1;
+	}
     }
-    if (document.getElementById('Tall Order').checked) {
-	string = string + 'Tall Order ';
+
+    if(index == 0) {
+	list[index] = "You didn't order anything!";
     }
-    if (document.getElementById('A Hamburger').checked) {
-	string = string + 'A Hamburger ';
-    }
-    if (document.getElementById('This guy again').checked) {
-	string = string + 'This guy again ';
-    }
-    if (document.getElementById('Really?').checked) {
-	string = string + 'Really? ';
-    }
-    if (string == '') {
-	string = "You didn't order anything! ";
-    }
-    return string;
+    return list;
 }
 
 'use strict';
@@ -51,7 +45,7 @@ var vm = new Vue({
     el: '#all',
     data: {
 	ID: 1,
-	orders: {},
+	orders: {}
     },
     methods: {
 	addOrder: function (event) {
@@ -60,17 +54,24 @@ var vm = new Vue({
 	    socket.emit("addOrder",
 			{ orderId: this.ID,
                           details: this.orders[0].details,
-                          orderItems: [readBurgers()],
+                          orderItems: readBurgers(),
 			  personalInfo: list
 			});
 	    this.ID = this.ID + 1;
 
-	    var list = new readData();
-	    var burgers = readBurgers();
-	    document.getElementById('order').innerHTML =
-		'Your order: ' + burgers + 'Info: ' +
-		list[0] + ', ' + list[1] + ', ' + list[2] +
-		', ' + list[3];
+	    var string = "Thank you for your order! <br/>" +
+		"Name: " + list[0] + "<br/> Email: " + list[1] +
+		"<br/> Payment: " + list[2] + "<br/>Gender: " +
+		list[3] + "<br/><br/> Your order: ";
+
+	    for (var item in hamburgers) {
+		if(item != 0) {
+		    string = string + ", ";
+		}
+		string = string + hamburgers[item];
+	    }
+
+	    document.getElementById('order').innerHTML = string;
 	    
 	},
 	displayOrder: function() {
