@@ -2,16 +2,20 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/deli-very.css">
     <script type="text/javascript" src="js/menu.js"></script>
     <script src="https://vuejs.org/js/vue.js" defer></script>
-    <script src="js/js_script.js" defer></script>
-    <!--<script src="js/vue_script.js" defer></script>-->
+    <!--<script src="js/js_script.js" defer></script>-->
+    <script src="js/vue_script.js" defer></script>
+    <script src="/vue/vue.js" defer></script>
+    <script src="/socket.io/socket.io.js" defer></script> 
+    <script src="js/deli-very.js" defer></script>
     <title>BUERGERS!!</title>
     <meta charset="utf-8"/>
   </head>
   
   <body>
-    <main>
+    <main id="all">
       <section class="header">
 	<h1>Welcome to BurgerOnline</h1>
 	<img src="https://cdnb.artstation.com/p/assets/images/images/006/006/249/large/kieran-mayer-insideside.jpg?1495373943">
@@ -65,15 +69,6 @@
 	    <label for="email">E-mail</label><br>
 	    <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
 	  </p>
-	  <p>
-	    <label for="street">Street</label><br>
-	    <input type="text" id="street" name="s" required="required" placeholder="Street name">
-	  </p>
-	  <p>
-	    <label for="house">House</label><br>
-	    <input type="number" min="0" id="house" name="h" required="required" placeholder="House number">
-	  </p>
-	  <p>
 	    <label for="paymeny">Payment options</label><br>
 	    <select id="payment" name="p">
 	      <option selected>Credit card</option>
@@ -89,10 +84,24 @@
 	    <input type="radio" id="confused" name="g" value="Confused">Confused as to why we want to know<br>
 	  </p>
 	</form>
+
+	<div> Please indicate point of delivery: </div>
+	<div class="view-box">
+	  <div id="dots" v-on:click="displayOrder">
+            <div 
+              v-for="(order, key) in orders" :key="key"
+              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+              {{"T"}}
+            </div>
+	  </div>
+	</div>
+	
       </section>
 
+
       <div id="buttondiv">
-	<button v-on:click="markDone" id="button" type="submit"><img src="https://images.vexels.com/media/users/3/144007/isolated/preview/6150d0cfaabb9b2fc29008ee0f8cf099-burger-fast-food-stroke-icon-by-vexels.png" width="20">Place order</button>
+	<button v-on:click="addOrder" id="button" type="submit"><img src="https://images.vexels.com/media/users/3/144007/isolated/preview/6150d0cfaabb9b2fc29008ee0f8cf099-burger-fast-food-stroke-icon-by-vexels.png" width="20">Place order</button>
+	
 	<div id="order">
 	</div>
       
